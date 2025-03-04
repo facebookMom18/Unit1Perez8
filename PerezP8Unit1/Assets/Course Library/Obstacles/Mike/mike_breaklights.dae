@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <asset>
+    <contributor>
+      <author>Blender User</author>
+      <authoring_tool>Blender 3.6.5 commit date:2023-10-16, commit time:14:30, hash:cf1e1ed46b7e</authoring_tool>
+    </contributor>
+    <created>2024-06-18T19:59:04</created>
+    <modified>2024-06-18T19:59:04</modified>
+    <unit name="meter" meter="1"/>
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_effects>
+    <effect id="g_breaklight_glow-effect">
+      <profile_COMMON>
+        <newparam sid="G_breaklight_glow_png-surface">
+          <surface type="2D">
+            <init_from>G_breaklight_glow_png</init_from>
+          </surface>
+        </newparam>
+        <newparam sid="G_breaklight_glow_png-sampler">
+          <sampler2D>
+            <source>G_breaklight_glow_png-surface</source>
+          </sampler2D>
+        </newparam>
+        <technique sid="common">
+          <lambert>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <diffuse>
+              <texture texture="G_breaklight_glow_png-sampler" texcoord="DiffuseUV"/>
+            </diffuse>
+            <reflectivity>
+              <float sid="specular">1</float>
+            </reflectivity>
+            <index_of_refraction>
+              <float sid="ior">1.45</float>
+            </index_of_refraction>
+          </lambert>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_images>
+    <image id="G_breaklight_glow_png" name="G_breaklight_glow_png">
+      <init_from>G_breaklight_glow.png</init_from>
+    </image>
+  </library_images>
+  <library_materials>
+    <material id="g_breaklight_glow-material" name="g_breaklight_glow">
+      <instance_effect url="#g_breaklight_glow-effect"/>
+    </material>
+  </library_materials>
+  <library_geometries>
+    <geometry id="LOD0_Surf0_g_breaklight_glow_mesh0000-mesh" name="LOD0_Surf0_g_breaklight_glow_mesh0000">
+      <mesh>
+        <source id="LOD0_Surf0_g_breaklight_glow_mesh0000-mesh-positions">
+          <float_array id="LOD0_Surf0_g_breaklight_glow_mesh0000-mesh-positions-array" count="9">-0.125 0.0625 1.625 0 0.0625 1.5625 0.0625 0.0625 1.625</float_array>
+          <technique_common>
+            <accessor source="#LOD0_Surf0_g_breaklight_glow_mesh0000-mesh-positions-array" count="3" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="LOD0_Surf0_g_breaklight_glow_mesh0000-mesh-normals">
+          <float_array id="LOD0_Surf0_g_breaklight_glow_mesh0000-mesh-normals-array" count="3">0 1 0</float_array>
+          <technique_common>
+            <accessor source="#LOD0_Surf0_g_breaklight_glow_mesh0000-mesh-normals-array" count="1" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="LOD0_Surf0_g_breaklight_glow_mesh0000-mesh-map-0">
+          <float_array id="LOD0_Surf0_g_breaklight_glow_mesh0000-mesh-map-0-array" count="6">0.4921875 0.4960938 0.515625 0.515625 0.4921875 0.515625</float_array>
+          <technique_common>
+            <accessor source="#LOD0_Surf0_g_breaklight_glow_mesh0000-mesh-map-0-array" count="3" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="LOD0_Surf0_g_breaklight_glow_mesh0000-mesh-colors-Attribute" name="Attribute">
+          <float_array id="LOD0_Surf0_g_breaklight_glow_mesh0000-mesh-colors-Attribute-array" count="12">1 0 0 0.9568628 1 0 0 0.9568628 1 0 0 0.9568628</float_array>
+          <technique_common>
+            <accessor source="#LOD0_Surf0_g_breaklight_glow_mesh0000-mesh-colors-Attribute-array" count="3" stride="4">
+              <param name="R" type="float"/>
+              <param name="G" type="float"/>
+              <param name="B" type="float"/>
+              <param name="A" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="LOD0_Surf0_g_breaklight_glow_mesh0000-mesh-vertices">
+          <input semantic="POSITION" source="#LOD0_Surf0_g_breaklight_glow_mesh0000-mesh-positions"/>
+        </vertices>
+        <triangles material="g_breaklight_glow-material" count="1">
+          <input semantic="VERTEX" source="#LOD0_Surf0_g_breaklight_glow_mesh0000-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#LOD0_Surf0_g_breaklight_glow_mesh0000-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#LOD0_Surf0_g_breaklight_glow_mesh0000-mesh-map-0" offset="2" set="0"/>
+          <input semantic="COLOR" source="#LOD0_Surf0_g_breaklight_glow_mesh0000-mesh-colors-Attribute" offset="3" set="0"/>
+          <p>0 0 0 0 2 0 1 1 1 0 2 2</p>
+        </triangles>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_visual_scenes>
+    <visual_scene id="Scene" name="Scene">
+      <node id="LOD0_Surf0_g_breaklight_glow" name="LOD0_Surf0_g_breaklight_glow" type="NODE">
+        <matrix sid="transform">-0.01 0 0 0 0 7.54979e-10 -0.01 0 0 0.01 7.54979e-10 0 0 0 0 1</matrix>
+        <instance_geometry url="#LOD0_Surf0_g_breaklight_glow_mesh0000-mesh" name="LOD0_Surf0_g_breaklight_glow">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="g_breaklight_glow-material" target="#g_breaklight_glow-material">
+                <bind_vertex_input semantic="DiffuseUV" input_semantic="TEXCOORD" input_set="0"/>
+              </instance_material>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#Scene"/>
+  </scene>
+</COLLADA>
